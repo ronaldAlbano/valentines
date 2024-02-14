@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentines ❣️</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-image: url('background.gif'); /* Add your background image URL here */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+  }
+  img {
+    display: block;
+    margin: 20px auto;
+  }
+  #yesButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+    background-color: green;
+    color: white;
+    border: none;
+  }
+  #noButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+    background-color: red;
+    color: white;
+    border: none;
+  }
+</style>
+</head>
+<body>
+<img id="gif" src="milk-and-mocha-love.gif" alt="GIF">
+<button id="yesButton">Yes</button>
+<button id="noButton">No</button>
+
+<script>
+  let yesButton = document.getElementById('yesButton');
+  let noButton = document.getElementById('noButton');
+  let gif = document.getElementById('gif');
+
+  yesButton.addEventListener('click', function() {
+    alert('Great! Redirecting you now...');
+    // Redirect to another page
+    window.location.href = 'valentines.html'; // Replace with your desired URL
+  });
+
+  // Array of variations for the text on the "No" button
+  let noVariations = [
+    "Are you sure?",
+    "Really, no?",
+    "Nope, try again?",
+    "Think about it...",
+    "Maybe reconsider?",
+    "Don't you want to say yes?"
+  ];
+
+  noButton.addEventListener('click', function() {
+    // Increase size of the Yes button
+    let currentWidth = parseInt(getComputedStyle(yesButton).width);
+    let currentHeight = parseInt(getComputedStyle(yesButton).height);
+    yesButton.style.width = (currentWidth + 10) + 'px'; // Increase width by 10 pixels
+    yesButton.style.height = (currentHeight + 2) + 'px'; // Increase height by 2 pixels
+
+    // Increase font size of the Yes button
+    let currentFontSize = parseInt(getComputedStyle(yesButton).fontSize);
+    yesButton.style.fontSize = (currentFontSize + 2) + 'px'; // Increase font size by 2 pixels
+
+    // Select a random variation from the array
+    let randomIndex = Math.floor(Math.random() * noVariations.length);
+    noButton.textContent = noVariations[randomIndex];
+  });
+</script>
+</body>
+</html>
